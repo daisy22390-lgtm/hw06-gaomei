@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<!-- HTML5 文件宣告；html 的 lang 表示本頁主要語言是繁體中文。 -->
+<html lang="zh-Hant">
+<head>
+    <!-- head 儲存網頁資訊；UTF-8 避免中文亂碼，viewport 使用裝置寬度。 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- description 說明內容，author 標示作者；title 顯示在分頁而非報導內。 -->
+    <meta name="description" content="高美濕地一頁式報導：認識臺中清水海岸的歷史、生態、木棧道與夕陽，透過清單、景點比較表、照片和影片探索濕地風景。">
+    <meta name="author" content="林品妤 D1446553">
+    <title>高美濕地報導｜CSS 美化版的海岸風景</title>
+    <!-- robots 允許搜尋引擎索引；Open Graph 提供分享時的標題、摘要與圖片。 -->
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:title" content="高美濕地：夕陽與潮汐交織的海岸風景">
+    <meta property="og:description" content="認識高美濕地的海岸歷史、生態、夕陽與散步重點，附照片、影片及位置地圖。">
+    <meta property="og:image" content="https://travel.taichung.gov.tw/Image/12578?r=637837893158126667">
+    <meta property="og:image:alt" content="高美濕地夕陽、灘地與遠方風車">
+    <!-- canonical 與 og:url 待正式網址確認後再設定，不填入本機或虛構網址。 -->
+    <style>
+        /* 全頁以元素選擇器建立閱讀字型、色彩、行高與背景。 */
+        :root {
+            color: #20332f;
+            background: #edf3ee;
+            font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+            line-height: 1.8;
+        }
+
+        body {
+            max-width: 960px;
+            margin: 28px auto;
+            padding: 0 24px;
+            background: #fffdfa;
+            border: 1px solid #d7e2d9;
+            border-radius: 18px;
+            box-shadow: 0 10px 28px rgba(36, 92, 73, 0.10);
+        }
+
+        header {
+            margin: 0 -24px;
+            padding: 42px 40px 28px;
+            color: #f7fbf6;
+            background: linear-gradient(135deg, #17483e, #2f7767);
+            border-radius: 18px 18px 0 0;
+        }
+
+        h1, h2, h3 {
+            line-height: 1.35;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: clamp(2rem, 5vw, 3rem);
+        }
+
+        h2 {
+            margin-top: 0;
+            padding-bottom: 8px;
+            color: #1f5d4d;
+            border-bottom: 2px solid #bfd9c7;
+        }
+
+        h3 {
+            color: #8c542c;
+        }
+
+        p, li, td, th {
+            font-size: 1rem;
+        }
+
+        /* nav 類別選擇器讓頁內目錄成為清楚的導覽卡片。 */
+        nav {
+            margin: 24px 0;
+            padding: 18px 24px;
+            background: #f2f7f1;
+            border-left: 5px solid #2f7767;
+            border-radius: 8px;
+        }
+
+        nav h2 {
+            margin-bottom: 8px;
+        }
+
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 18px;
+            margin: 0;
+            padding-left: 22px;
+        }
+
+        a {
+            color: #0f5e78;
+            font-weight: 700;
+            text-underline-offset: 3px;
+        }
+
+        /* :hover 與 :focus-visible 分別回應滑鼠與鍵盤操作。 */
+        a:hover {
+            color: #a24c21;
+        }
+
+        a:focus-visible {
+            outline: 3px solid #f1aa4c;
+            outline-offset: 3px;
+            border-radius: 3px;
+        }
+
+        main {
+            padding: 6px 0;
+        }
+
+        section {
+            margin: 28px 0;
+            padding: 24px;
+            background: #ffffff;
+            border: 1px solid #dce9df;
+            border-radius: 12px;
+        }
+
+        mark {
+            padding: 1px 5px;
+            color: #234d3f;
+            background: #f8dda1;
+            border-radius: 3px;
+        }
+
+        ul, ol {
+            padding-left: 28px;
+        }
+
+        li + li {
+            margin-top: 7px;
+        }
+
+        /* 表格移除舊式 border 屬性，改由 CSS 控制框線與間距。 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+        }
+
+        caption {
+            margin-bottom: 8px;
+            color: #5b4434;
+            font-weight: 700;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+            border: 1px solid #bcd1c1;
+        }
+
+        thead th {
+            color: #fff;
+            background: #2d6b5b;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f3f8f3;
+        }
+
+        figure {
+            margin: 0;
+            padding: 16px;
+            background: #f3f7f4;
+            border: 1px solid #d4e0d5;
+            border-radius: 10px;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 7px;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: #52635c;
+            font-size: 0.92rem;
+        }
+
+        /* 同一 class 套用於影片與地圖，使嵌入媒體不超出內容寬度。 */
+        .responsive-media {
+            display: block;
+            width: 100%;
+            max-width: 720px;
+            aspect-ratio: 16 / 9;
+            height: auto;
+            margin: 16px auto;
+            border: 0;
+            border-radius: 8px;
+        }
+
+        .map-media {
+            aspect-ratio: 4 / 3;
+        }
+
+        /* ID 選擇器只裝飾補充用途的 aside，不改變其語意。 */
+        #tips {
+            margin: 28px 0;
+            padding: 22px 24px;
+            background: #fff8e8;
+            border: 1px solid #e7c779;
+            border-radius: 12px;
+        }
+
+        details {
+            padding: 12px 14px;
+            background: #fffdf7;
+            border: 1px solid #ecdba5;
+            border-radius: 7px;
+        }
+
+        summary {
+            color: #725223;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        footer {
+            margin: 30px -24px 0;
+            padding: 22px 40px;
+            color: #e9f4ec;
+            background: #1e4d42;
+            border-radius: 0 0 18px 18px;
+        }
+
+        footer a {
+            color: #fff3be;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                margin: 0;
+                padding: 0 15px;
+                border: 0;
+                border-radius: 0;
+            }
+
+            header, footer {
+                margin-right: -15px;
+                margin-left: -15px;
+                padding: 28px 20px;
+                border-radius: 0;
+            }
+
+            section {
+                padding: 18px;
+            }
+
+            th, td {
+                padding: 8px;
+                font-size: 0.92rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!--
+        HW05 臺中景點報導，依老師範例的八個章節編排。
+        加入同檔案的 CSS；不使用外部 CSS、框架或 JavaScript。
+        成對標籤明確結束；meta、img、br、hr 是空元素，不寫結束標籤。
+    -->
+    <header id="top">
+        <!-- h1 是全頁唯一主標題；id="top" 供頁尾連結返回。 -->
+        <h1>高美濕地：夕陽與潮汐交織的海岸風景</h1>
+        <p>從木棧道走向海岸，認識臺中清水的濕地故事。</p>
+        <!-- time 的 datetime 提供機器可辨識的標準日期。 -->
+        <p>作者：林品妤｜學號：D1446553｜報導整理日期：<time datetime="2026-10-23">2026 年 10 月 23 日</time></p>
+        <!-- 方法一行內樣式：個別加強資料整理聲明的可辨識性。 -->
+        <p><small style="color: #e9f4ec; letter-spacing: 0.03em;">本文為參考公開資料整理的課堂報導，非現場採訪紀錄。</small></p>
+    </header>
+
+    <!-- nav 是目錄；href 中的 # 對應下方章節 id，每個 id 只出現一次。 -->
+    <nav aria-label="報導目錄">
+        <h2>報導目錄</h2>
+        <ul>
+            <li><a href="#intro">濕地簡介</a></li>
+            <li><a href="#highlights">景點特色與散步順序</a></li>
+            <li><a href="#table">景點比較表</a></li>
+            <li><a href="#photo">高美濕地照片</a></li>
+            <li><a href="#video">影音報導</a></li>
+            <li><a href="#map">位置地圖</a></li>
+            <li><a href="#tips">走讀補充提醒</a></li>
+            <li><a href="#sources">資料來源</a></li>
+        </ul>
+    </nav>
+    <!-- hr 表示主題分隔；不是用表格或空白段落來排版。 -->
+    <hr>
+    <!-- main 是主要內容；article 讓整篇報導形成可獨立閱讀的單位。 -->
+    <main>
+        <article aria-label="高美濕地專題報導">
+            <!-- section 分出章節，h2 是章節標題，h3 是章節內的小標題。 -->
+            <section id="intro">
+                <h2>一、濕地簡介</h2>
+                <!-- p 包住完整段落；strong 強調關鍵名詞，不取代標題。 -->
+                <p>
+                    <strong>高美濕地</strong>位於臺中市清水區、大甲溪出海口南側，是臺中海岸具有代表性的自然景點。
+                    泥灘、沙灘與河口環境交錯，讓這裡不只有開闊海景，也提供多種生物生活的空間。
+                    旅人沿著木棧道與海堤觀察，可以把視線從遠方的海平面移向近處的灘地，認識潮汐塑造的海岸風景。
+                </p>
+                <p>
+                    高美的歷史曾與海水浴場相連。<strong>1932 年</strong>高美海水浴場啟用，成為當時清水的遊憩據點；
+                    後來臺中港建設及攔沙堤改變泥沙堆積情形，浴場於 1976 年關閉。
+                    灘地逐漸展現豐富的生態價值，在居民與保育團體的關注下，2004 年公告設立高美野生動物保護區。
+                    從戲水場所到保育空間，這段轉變讓人看見海岸利用與環境保護之間的關係。
+                </p>
+                <p>
+                    高美濕地的特色，在於<!-- 方法一行內樣式：只標示本段閱讀焦點。 --><mark style="background-color: #ffd98b; padding: 2px 7px;">生態觀察與夕陽景觀</mark>能同時出現在旅程中。
+                    雲林莞草、招潮蟹、彈塗魚與季節性候鳥，使灘地呈現不同的生命樣貌；黃昏的光線則讓水面與天空產生色彩變化。
+                    欣賞風景時，應沿開放路線活動，保持觀察距離，讓拍照與散步成為理解濕地的方式，而不打擾原本的棲地。
+                </p>
+                <!-- br 用於同段資訊換行；不連續使用 br 製造裝飾性間距。 -->
+                <p>景點位置：臺中市清水區大甲溪出海口南側。<br>閱讀重點：海岸歷史、濕地生態與夕陽景觀。</p>
+            </section>
+
+            <section id="highlights">
+                <h2>二、景點特色與散步順序</h2>
+                <h3>值得留意的三個特色</h3>
+                <!-- ul 表示無先後順序的特色；每個項目都必須由 li 包住。 -->
+                <ul>
+                    <li><strong>潮間帶生態：</strong>從開放步道觀察灘地植物、蟹類與鳥類，認識不同生物的棲地。</li>
+                    <li><strong>木棧道景觀：</strong>沿指定動線親近海岸，觀察灘地與水面的變化。</li>
+                    <li><strong>夕陽與風車：</strong>遠方風力發電機和海平面形成有辨識度的海岸景色。</li>
+                </ul>
+                <h3>建議散步順序</h3>
+                <!-- 方法一行內樣式：提示此處為自行規劃的散步建議。 -->
+                <p style="color: #7b4a25; padding-left: 12px; border-left: 4px solid #dfa05d;">以下為本報導自行規劃的散步建議，並非官方指定路線；依當日開放情況調整。</p>
+                <!-- ol 是有序清單，瀏覽器會依照 li 的排列順序顯示編號。 -->
+                <ol>
+                    <li>出發前查看官方潮汐與木棧道開放資訊，抵達後先閱讀現場導覽牌。</li>
+                    <li>沿海堤步道觀察濕地全景，認識草澤與灘地的分布。</li>
+                    <li>木棧道開放時，再沿木棧道緩步觀察生態，不跨越管制範圍。</li>
+                    <li>在開放且安全的觀景位置欣賞夕陽，最後將垃圾帶走並依動線離開。</li>
+                </ol>
+                <p>出發前可查閱<a href="https://www.links.taichung.gov.tw/837108/2758517/2758920/2768069/post">木棧道開放資訊</a>與<a href="https://www.links.taichung.gov.tw/2758922/Lpsimplelist">高美濕地潮汐預報</a>。</p>
+            </section>
+
+            <section id="table">
+                <h2>三、景點比較表</h2>
+                <!-- table 的框線、表頭色彩與內距由 head 中 CSS 的 table、th、td 規則設定。 -->
+                <table>
+                    <!-- caption 是表格的名稱；thead 與 tbody 區分表頭及資料。 -->
+                    <caption>高美濕地三處觀察位置的特色與重點</caption>
+                    <thead>
+                        <tr>
+                            <!-- tr 是一列；th 的 scope="col" 指定欄標題。 -->
+                            <th scope="col">觀察位置</th>
+                            <th scope="col">主要特色</th>
+                            <th scope="col">建議觀察重點</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!-- scope="row" 指定列標題；td 放一般資料，每列共三格。 -->
+                            <th scope="row">高美濕地木棧道</th>
+                            <td>依開放動線近距離欣賞濕地</td>
+                            <td>棧道兩側的灘地、生物活動及潮水變化</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">海堤步道</th>
+                            <td>視野開闊，可觀察海岸全景</td>
+                            <td>草澤、潮間帶與遠方風車的相對位置</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">高美燈塔周邊</th>
+                            <td>呈現高美地區的海岸歷史地標</td>
+                            <td>紅白相間的塔身與周邊海岸環境</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="photo">
+                <h2>四、高美濕地照片</h2>
+                <!-- figure 將圖片和圖說放在一起；figcaption 明確標示內容與來源。 -->
+                <figure>
+                    <!--
+                        src 使用官方景點照片的完整網址，與本機檔案路徑不同，需要網路載入。
+                        alt 具體描述夕陽、灘地與風車，協助看不到照片的讀者理解內容。
+                        width 設為與老師範例相同的 480 像素，未指定高度以保留原始比例。
+                    -->
+                    <img
+                        src="https://travel.taichung.gov.tw/Image/12578?r=637837893158126667"
+                        alt="高美濕地夕陽映照灘地水面，遠方排列著風力發電機"
+                    width="480">
+                    <figcaption>
+                        夕陽將高美濕地的灘面染成金色，遠方風車構成海岸剪影。
+                        圖片來源：<a href="https://www.taichung.travel/zh-tw/Attractions/Intro/54/">臺中市政府觀光旅遊局「高美濕地」景點頁</a>。
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section id="video">
+                <h2>五、影音報導</h2>
+                <p>透過臺中市政府觀光旅遊局發布的影片，觀察高美濕地的景色，再與本文介紹的特色相互對照。</p>
+                <!--
+                    iframe 嵌入外部播放器，必須有結束標籤。
+                    src 使用 /embed/影片ID；下方一般連結則使用 /watch?v=影片ID。
+                    width、height 設定尺寸，title 描述影片，allowfullscreen 允許全螢幕。
+                    referrerpolicy 保留跨站來源；用 HTTP 網站預覽，避免 file 開啟時缺少來源資訊。
+                    allow 列出播放器可使用的功能；實際播放仍取決於 YouTube 與網路狀況。
+                -->
+                <iframe
+                    class="responsive-media"
+                    src="https://www.youtube.com/embed/FPVozpIvADI"
+                    title="臺中市政府觀光旅遊局：臺中景點影片02 高美濕地"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+                <!-- target 開新分頁，rel 避免新頁面控制原頁面；另提供一般連結作為備用。 -->
+                <p>若播放器無法播放，請<a href="https://www.youtube.com/watch?v=FPVozpIvADI" target="_blank" rel="noopener noreferrer">在 YouTube 觀看高美濕地介紹影片（另開分頁）</a>。</p>
+                <p><small>影片來源：大玩台中－臺中觀光旅遊局。現場開放情況以最新官方公告為準。</small></p>
+            </section>
+
+            <hr>
+            <!-- section 將位置資訊獨立成有標題的章節；地圖與正文介紹同一個景點。 -->
+            <section id="map">
+                <h2>六、位置地圖</h2>
+                <p>景點位置／地址：臺中市清水區高美濕地（大甲溪出海口南側）。</p>
+                <!-- iframe 嵌入 Google 地圖；q 指定景點，output=embed 顯示嵌入版。HTML 中 & 寫為 &amp;。
+                     title 說明地圖用途；loading 延後載入，referrerpolicy 控制傳送來源資訊。 -->
+                <iframe
+                    src="https://maps.google.com/maps?q=高美濕地臺中市清水區&amp;z=15&amp;output=embed"
+                    class="responsive-media map-media"
+                    title="臺中市清水區高美濕地位置地圖"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    allowfullscreen>
+                </iframe>
+                <p>地圖來源：Google 地圖。亦可<a href="https://www.google.com/maps/search/?api=1&amp;query=高美濕地臺中市清水區" target="_blank" rel="noopener noreferrer">開啟高美濕地 Google 地圖</a>，查看地點與前往路線。</p>
+            </section>
+            <hr>
+            <!-- aside 補充走讀提醒；移除後不影響主文歷史與特色的論述，也不會自動排在右側。 -->
+            <aside id="tips">
+                <h2>七、走讀補充提醒</h2>
+                <p><strong>先確認開放資訊，再安排觀察路線。</strong>潮汐與天候會影響現場活動，請依公告和指示通行。</p>
+                <!-- details 與 summary 提供瀏覽器原生收折功能，不需要 JavaScript。 -->
+                <details>
+                    <summary>展開出發前的小提醒</summary>
+                    <ul>
+                        <li>以開放步道為觀察範圍，不踩踏草澤或跨越圍設。</li>
+                        <li>攜帶飲水與防曬用品，依天候準備防風衣物。</li>
+                        <li>觀察生物時保持距離，不捕捉、不餵食，將垃圾帶離。</li>
+                    </ul>
+                </details>
+            </aside>
+            <hr>
+            <section id="sources">
+                <h2>八、資料來源</h2>
+                <p>文字依下列公開資料重新整理，散步順序及觀察建議由本報導規劃。</p>
+                <!-- a 的 href 指向外部參考資料；文字、圖片與影片分別標示來源用途。 -->
+                <ul>
+                    <li><a href="https://www.taichung.travel/zh-tw/Attractions/Intro/54/" target="_blank" rel="noopener noreferrer">臺中觀光旅遊網：高美濕地（景點、生態介紹與圖片來源）</a></li>
+                    <li><a href="https://www.hqingshui.taichung.gov.tw/1394346/1394372/1432189/1432196" target="_blank" rel="noopener noreferrer">臺中市清水戶政事務所：臺中海岸的生態瑰寶－高美濕地（歷史與地標資料）</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=FPVozpIvADI" target="_blank" rel="noopener noreferrer">大玩台中－臺中觀光旅遊局：臺中景點影片02 高美濕地（影片來源）</a></li>
+                </ul>
+                <p><small>資料整理日期：2026 年 10 月 23 日。</small></p>
+            </section>
+        </article>
+    </main>
+    <hr>
+    <!-- footer 標示作業資訊；#top 對應頁首 id，提供回到頁首功能。 -->
+    <footer>
+        <p>HW06｜高美濕地報導｜林品妤 D1446553</p>
+        <p><small>更新日期：<time datetime="2026-10-23">2026 年 10 月 23 日</time>｜HTML5 與 CSS 樣式練習</small></p>
+        <p><a href="#top">回到頁首</a></p>
+    </footer>
+</body>
+</html>
